@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Arithmetic Calculator REST API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Implement a Web platform to provide a simple calculator functionality (addition, subtraction, multiplication, division, square root, and a random string generation) where each functionality will have a separate cost per request.
+User’s will have a starting credit/balance. Each request will be deducted from the user’s balance. If the user’s balance isn’t enough to cover the request cost, the request shall be denied. This Web application and its UI application should be live (on any platform of your choice).
+They should be ready to be configured and used locally for any other developer (having all instructions written for this purpose).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Entities
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Person
+    - id
+    - username (email)
+    - password
+    - status (active, inactive)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Operation
+    - id
+    - type (addition, subtraction, multiplication, division, square_root, random_string) ○
+    - cost
+- Record
+    - id
+    - operation_id
+    - user_id
+    - amount
+    - user_balance
+    - operation_response
+    - date
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Technical Requirements
+- Use third-party operation for random string https://www.random.org/clients
+- All client-server interaction should be through RESTful API (versionated).
+- Collection endpoints should be able to provide filters and pagination.
+- Use a Bootstrap or Material Design library (CSS/Design Library) of your choice.
+- Add automated tests such as Unit Test (whether for frontend or backend).
+- Records should be soft-deleted only.
+## UI views:
+- Login (and “sign out” button anywhere available for all session-required screens) ○
+  A simple username and password input form
+- New Operation
+- An input form providing all fields to request a new operation on behalf of the
+  current user
+- User Records
+- Datatable of all operation records from the current user
+- Datatable should have pagination (page number and per-page option)
+  and sorting
+- Datatable should have a filter/search input field for partial matches
+- Delete button to delete records
